@@ -1,7 +1,7 @@
 databases:
   - name: expenditure
     databaseName: expenditure_db
-    user: zafron
+    user: winner
 
 services:
   - type: web
