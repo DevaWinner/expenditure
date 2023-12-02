@@ -90,7 +90,7 @@ rspec spec --format documentation
 
 - [Live Demo](https://expenditure-2i8a.onrender.com/)
 
-- [Project presentation](https://www.youtube.com/watch?v=Gjlb8E8ArTU)
+- [Project Presentation](https://www.loom.com/share/68f477522af04d1c9a51f321866b5fa6?sid=ac1d8821-7d79-4c57-bc47-f72894e8d4e7)
 
 <!-- AUTHORS -->
 
