@@ -26,7 +26,7 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 Expenditure App <a name="about-project"></a>
+# 📖 Expenditure Smart Budget App <a name="about-project"></a>
 
 This Ruby on Rails project is about building a mobile web application where user can manage budget: user have a list of transactions associated with a group, so that user can see how much money they have spent and on what.
 
@@ -72,7 +72,7 @@ Clone this repository to your desired folder:
 
 ```sh
   cd my-folder
-  gh repo clone https://github.com/Zafron047/Expenditures.git
+  gh repo clone git@github.com:DevaWinner/expenditure.git
 ```
 
 ### Install
@@ -88,7 +88,7 @@ To run the testing, execute the following command:
 rspec spec --format documentation
 ```
 
-- [Live Demo](https://expenditure-2i8a.onrender.com/)
+- [Live Demo](https://smart-budget-6u1l.onrender.com/)
 
 - [Project Presentation](https://www.loom.com/share/68f477522af04d1c9a51f321866b5fa6?sid=ac1d8821-7d79-4c57-bc47-f72894e8d4e7)
 
