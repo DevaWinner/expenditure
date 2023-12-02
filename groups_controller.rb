@@ -1,6 +1,6 @@
 class GroupsController < ApplicationController
   before_action :authenticate_user!
-  
+
   def index
     @groups = current_user.groups.includes(:expenses)
   end
@@ -12,9 +12,9 @@ class GroupsController < ApplicationController
   def create
     @group = current_user.groups.build(group_params)
     if @group.save
-      redirect_to groups_path, notice: "Great, group created successfully"
+      redirect_to groups_path, notice: 'Great, group created successfully'
     else
-      render :new, notice: "Error: Group not created"
+      render :new, notice: 'Error: Group not created'
     end
   end
 
