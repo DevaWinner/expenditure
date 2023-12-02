@@ -96,10 +96,11 @@ rspec spec --format documentation
 
 ## 👥 Authors <a name="authors"></a>
 
-👤 MD. Nohain Islam
-- [Twitter](https://twitter.com/NohainZ) - NohainZ
-- [Github](https://github.com/Zafron047) - Zafron047
-- [LinkedIn](https://www.linkedin.com/in/nohain-islam/) - nohain-islam
+👤 **Aniekan Winner**
+
+- GitHub: [@githubhandle](https://github.com/DevaWinner)
+- Twitter: [@twitterhandle](https://twitter.com/WinnerDevq)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/winnera/)
 
 <!-- FUTURE FEATURES -->
 
@@ -133,7 +134,7 @@ If you like this project, show your support by giving the project a ⭐️.
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-I would like to thank Microverse for including this in their curriculum. and also thanks to <a href="https://www.behance.net/gregoirevella">Gregoire Vella</a> for the design.
+I would like to thank <a href="https://www.behance.net/gregoirevella">Gregoire Vella</a> for the design.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
