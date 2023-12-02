@@ -90,7 +90,7 @@ rspec spec --format documentation
 
 - [Live Demo](https://smart-budget-6u1l.onrender.com/)
 
-- [Project Presentation](https://www.loom.com/share/68f477522af04d1c9a51f321866b5fa6?sid=ac1d8821-7d79-4c57-bc47-f72894e8d4e7)
+- [Project Presentation](https://www.loom.com/share/4dc6857cb16e47bf8c40323580f4881d?sid=8c5d494c-2092-4534-a1f7-98e279df7888)
 
 <!-- AUTHORS -->
 
