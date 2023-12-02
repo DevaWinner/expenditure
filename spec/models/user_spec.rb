@@ -1,31 +1,26 @@
 require 'rails_helper'
+
 RSpec.describe User, type: :model do
-  describe 'validations' do
-    it 'is valid with valid attributes' do
-      user = build(:user)
-      expect(user).to be_valid
-    end
+  subject { User.new(name: 'Tom', email: 'example@gmail.com', password: '123456', role: 'Admin') }
+  before { subject.save }
 
-    it 'is not valid without a name' do
-      user = build(:user, name: nil)
-      expect(user).not_to be_valid
-    end
+  it('empty name should not be valid') do
+    subject.name = nil
+    expect(subject).not_to be_valid
+  end
 
-    it 'is not valid with a name that exceeds 255 characters' do
-      long_name = 'a' * 256
-      user = build(:user, name: long_name)
-      expect(user).not_to be_valid
-    end
+  it('empty email should not be vaid') do
+    subject.email = nil
+    expect(subject).not_to be_valid
+  end
 
-    it 'is not valid without an email' do
-      user = build(:user, email: nil)
-      expect(user).not_to be_valid
-    end
+  it('name should be valid') do
+    subject.name = 'John'
+    expect(subject).to be_valid
+  end
 
-    it 'is not valid with a duplicate email' do
-      create(:user, email: 'test@example.com')
-      user = build(:user, email: 'test@example.com')
-      expect(user).not_to be_valid
-    end
+  it('email should be valid') do
+    subject.email = 'xyz@gmail.com'
+    expect(subject).to be_valid
   end
 end

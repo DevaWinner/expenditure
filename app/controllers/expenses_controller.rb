@@ -1,44 +1,34 @@
 class ExpensesController < ApplicationController
   before_action :authenticate_user!
-
-  def index
-    puts params.inspect
-    if params[:group_id]
-      @group = Group.find(params[:group_id])
-      @updated_group_expenses = @group.expenses.where(author_id: current_user).order(created_at: :desc)
-      @total_amount = @updated_group_expenses.sum(:amount)
-      @expenses = @updated_group_expenses.to_a
-    elsif params[:user_id]
-      @user = User.find(params[:user_id])
-      @expenses = @user.expenses.order(:created_at)
-    end
-  end
+  layout 'application'
 
   def new
+    @groups = Group.all
     @expense = Expense.new
-    @group = Group.find(params[:group_id])
-    @groups = current_user.groups.all
   end
 
   def create
-    group_params = params[:expense][:group]
-    name = params[:expense][:name]
-    amount = params[:expense][:amount]
-
-    @group = Group.find_by(name: group_params)
-    @expense = current_user.expenses.build(name:, amount:)
-    @group.expenses << @expense
+    @expense = Expense.new(expense_params)
+    @expense.author = current_user
 
     if @expense.save
-      redirect_to group_expenses_path(@group), notice: 'Great, expense created successfully'
+      group_id = params[:expense][:group_ids]
+      if group_id.present?
+        group = Group.find(group_id)
+        GroupExpense.create(expense: @expense, group:)
+      end
+
+      redirect_to group_path(group), notice: 'Expense created successfully.'
     else
-      render :new, notice: 'Error: Expense not created'
+      flash.now[:error] = 'Failed to create expense.'
+      @groups = Group.all
+      render :new, status: :unprocessable_entity
     end
   end
 
   private
 
   def expense_params
-    params.require(:expense).permit(:name, :amount).merge(group: params[:expense][:group])
+    params.require(:expense).permit(:name, :amount, group_ids: [])
   end
 end

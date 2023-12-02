@@ -1,14 +1,18 @@
 Rails.application.routes.draw do
-  devise_for :users, path: 'users',
-  path_names: { sign_in: 'sign_in', sign_out: 'sign_out', password: 'secret', registration: 'register', sign_up: 'sign_up' }
+  devise_for :users
+  get '/sign_out_user', to: 'users#sign_out_user', as: 'sign_out_user'
+  # get '/users/sign_out', to: 'devise/sessions#destroy'
+  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  devise_scope :user do
-    get '/users/sign_out', to: 'devise/sessions#destroy'
-    root to: 'groups#index'
-  end
-  
-  resources :users
-  resources :groups, only: [:index, :new, :create] do
-    resources :expenses, only: [:index, :new, :create]
-  end
+  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
+  # Can be used by load balancers and uptime monitors to verify that the app is live.
+  get "up" => "rails/health#show", as: :rails_health_check
+
+  # Defines the root path route ("/")
+  root "groups#index"
+  get '/splash', to: 'splash#index'
+  resources :expenses, only: [:new, :create]
+  resources :groups, only: [:index, :show, :new, :create]
+
+  # get '*path', to: redirect('/'), via: :all, constraints: lambda { |req| !req.path.starts_with?('/rails/active_storage') }
 end
